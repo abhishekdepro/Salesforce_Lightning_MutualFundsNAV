@@ -1,0 +1,73 @@
+<aura:component implements="flexipage:availableForAllPageTypes,flexipage:availableForRecordHome" access="global" >
+    <aura:attribute name="currentValue" type="String" default="30.95"/>
+    <aura:attribute name="fundName" type="String" default="Axis Long Term Equity Fund"/>
+    <div class="slds">
+        <div class="slds-grid sld	s-wrap">
+            <div class="slds-col slds-size_4-of-12">
+                <div class="slds-p-top_large slds-p-left_large">
+                    <article class="slds-card">
+                        <div class="slds-card__header slds-grid">
+                            <header class="slds-media slds-media_center slds-has-flexi-truncate">
+                                <div class="slds-media__figure">
+                                    <span title="description of icon when needed" class="slds-icon_container slds-icon-standard-contact">
+                                        <c:svgIcon class="slds-icon slds-icon_small" svgPath="/resource/slds230/assets/icons/custom-sprite/svg/symbols.svg#custom17" />
+                                    </span>
+                                </div>
+                                <div class="slds-media__body">
+                                    <h2>
+                                        <a title="[object Object]" class="slds-card__header-link slds-truncate" href="javascript:void(0);">
+                                            <span class="slds-text-heading_small">{!v.fundName}</span>
+                                        </a>
+                                    </h2>
+                                </div>
+                                <span class="slds-badge">ELSS</span>&nbsp;&nbsp;
+                            </header>
+                            <div class="slds-no-flex">
+                                <button class="slds-button slds-button_brand">Refresh</button>
+                            </div>
+                        </div>
+                        <div class="slds-card__body slds-card__body_inner">Axis Long Term Equity fund uses the 3-year lock-in window of the ELSS to provide a unique approach to equity investing. 
+                            The lock-in creates a situation where both investor and the fund manager interests are aligned in looking at long term opportunities and ignoring short term noise.
+                        </div>
+                        <div class="slds-card__body slds-card__body_inner slds-text-heading_large blueText">40.95 <h1 class="greenText">+10%</h1></div>
+                        <footer class="slds-card__footer">Ⓒ Axis Mutual Funds 2018</footer>
+                    </article>
+                </div>
+            </div>
+            <div class="slds-col slds-size_6-of-12">
+            	<div class="slds-p-top_large slds-p-left_large">
+                    <article class="slds-card">
+                        <div class="slds-card__header slds-grid">
+                            <header class="slds-media slds-media_center slds-has-flexi-truncate">
+                                <div class="slds-media__figure">
+                                    <span title="description of icon when needed" class="slds-icon_container slds-icon-standard-contact">
+                                        <c:svgIcon class="slds-icon slds-icon_small" svgPath="/resource/slds230/assets/icons/custom-sprite/svg/symbols.svg#custom17" />
+                                    </span>
+                                </div>
+                                <div class="slds-media__body">
+                                    <h2>
+                                        <a title="[object Object]" class="slds-card__header-link slds-truncate" href="javascript:void(0);">
+                                            <span class="slds-text-heading_small">Aditya Birla Sun Life Tax Relief '96 - Growth</span>
+                                        </a>
+                                    </h2>
+                                </div>
+                                <span class="slds-badge">ELSS</span>
+                                <span class="slds-badge">Growth</span>&nbsp;&nbsp;
+                            </header>
+                            <div class="slds-no-flex">
+                                <button class="slds-button slds-button_brand">Refresh</button>
+                            </div>
+                        </div>
+                        <div class="slds-card__body slds-card__body_inner">Birla Sun Life Mutual Fund started their mutual fund on 23/12/1994 and its managing total assets of ₹2,24,938 Cr. 
+                            Its ranked at 4 as per total assets at end of 30th Sep 2017. The Scheme aims to provide growth of capital along with Income Tax exemption benefits to investors.
+                            This works best for long term assets.
+                        </div>
+                        <div class="slds-card__body slds-card__body_inner slds-text-heading_large blueText">38.88 <h1 class="redText">-3%</h1></div>
+                        <footer class="slds-card__footer">Ⓒ Aditya Birla Sun Life Mutual Funds 2018</footer>
+                    </article>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+</aura:component>
