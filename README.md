@@ -3,4 +3,4 @@ This is a lightning component and backend Python Code for displaying NAV details
 
 
 The end component looks like below:
-![Salesforce NAV Lightning Component](https://raw.githubusercontent.com/abhishekdepro/Salesforce_Lightning_MutualFundsNAV/master/LightningComponentScreenshot.png)
+![Salesforce NAV Lightning Component](https://raw.githubusercontent.com/abhishekdepro/Salesforce_Lightning_MutualFundsNAV/master/LightningComponentScreenshotSmall.png)
