@@ -19,7 +19,7 @@ with open("NAVAll.txt") as f:
 
 print mutual_fund_NAVDict
 
-sf = Salesforce(username='abhishekdepro@gmail.com', password='v0d@f0ne#', security_token='L3JyNGnmlovXqsDzZSglPfaa')
+sf = Salesforce(username='XXX', password='YYY', security_token='ZZZ')
 for fund in mutual_fund_NAVDict.keys():
     sf.Mutual_Fund__c.create({'Type__c':'ELSS','NAV__c': mutual_fund_NAVDict.get(fund),
                           'Portfolio_Name__c':fund})
