@@ -8,10 +8,14 @@
 from simple_salesforce import Salesforce
 import urllib
 import config
+import datetime
 
 #Method to Delete MF from Dictionary if the values have not changed overnight
-def pop_unchanged_funds(fundname,oldNAV):
-    if float(oldNAV) == float(mutual_fund_NAVDict[fundname]):
+def pop_unchanged_funds(fundname,oldNAV,createdDate):
+    today = datetime.date.today()
+    today = today.strftime('%Y-%m-%d')
+    if (float(oldNAV) == float(mutual_fund_NAVDict[fundname]) and today==createdDate[:10]):
+            print 'success!'
             del mutual_fund_NAVDict[fundname]
 
 urllib.urlretrieve('https://www.amfiindia.com/spages/NAVAll.txt', 'NAVAll.txt')
@@ -31,7 +35,7 @@ query_results = sf.query("SELECT Id, Portfolio_Name__c, NAV__c, CreatedDate FROM
 #iterate over the fetched records and see if NAV has changed
 mf_records = query_results['records']
 for mf in mf_records:
-    pop_unchanged_funds(mf['Portfolio_Name__c'],mf['NAV__c'])
+    pop_unchanged_funds(mf['Portfolio_Name__c'],mf['NAV__c'],mf['CreatedDate'])
 
 print mutual_fund_NAVDict
 
