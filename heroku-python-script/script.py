@@ -25,7 +25,6 @@ with open("NAVAll.txt") as f:
 
 print mutual_fund_NAVDict
 
-<<<<<<< HEAD
 sf = Salesforce(username=config.SALESFORCE_CONFIG.get('username'), password=config.SALESFORCE_CONFIG.get('password'), security_token=config.SALESFORCE_CONFIG.get('security_token'))
 query_results = sf.query("SELECT Id, Portfolio_Name__c, NAV__c, CreatedDate FROM Mutual_Fund__c ORDER BY CreatedDate DESC LIMIT 2")
 
@@ -36,12 +35,6 @@ for mf in mf_records:
 
 print mutual_fund_NAVDict
 
-#for fund in mutual_fund_NAVDict.keys():
-#    sf.Mutual_Fund__c.create({'Type__c':'ELSS','NAV__c': mutual_fund_NAVDict.get(fund),
-#                          'Portfolio_Name__c':fund})
-=======
-sf = Salesforce(username='XXX', password='YYY', security_token='ZZZ')
 for fund in mutual_fund_NAVDict.keys():
     sf.Mutual_Fund__c.create({'Type__c':'ELSS','NAV__c': mutual_fund_NAVDict.get(fund),
                           'Portfolio_Name__c':fund})
->>>>>>> 61ea1a18f00e3d7cd0f70554a11a9967595352f5
