@@ -9,3 +9,8 @@ SALESFORCE_CONFIG = {
     'password': 'YYY',
     'security_token': 'ZZZ'
 }
+
+AMFII_URL = {
+    'url': 'https://www.amfiindia.com/spages/NAVAll.txt',
+    'filename': 'NAVAll.txt'
+}

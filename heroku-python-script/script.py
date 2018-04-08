@@ -18,7 +18,7 @@ def pop_unchanged_funds(fundname,oldNAV,createdDate):
             print 'success!'
             del mutual_fund_NAVDict[fundname]
 
-urllib.urlretrieve('https://www.amfiindia.com/spages/NAVAll.txt', 'NAVAll.txt')
+urllib.urlretrieve(config.AMFII_URL.get('url'), config.AMFII_URL.get('filename'))
 mutual_fund_NAVDict = {}
 with open("NAVAll.txt") as f:
     for line in f:
