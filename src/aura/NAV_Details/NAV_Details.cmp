@@ -4,9 +4,9 @@
     <aura:attribute name="myFunds" type="Mutual_Fund__c[]" default="{ 'sobjectType': 'Mutual_Fund__c'}"/>    
     <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
     <div class="slds">
-        <div class="slds-grid sld	s-wrap">
-            <div class="slds-col slds-size_4-of-12">
-                <div class="slds-p-top_large slds-p-left_large">
+        <div class="slds-grid slds-wrap">
+            <div class="slds-col slds-size_12-of-12">
+                <div class="slds-p-top_large slds-p-left_large slds-p-right_large">
                     <article class="slds-card">
                         <div class="slds-card__header slds-grid">
                             <header class="slds-media slds-media_center slds-has-flexi-truncate">
@@ -18,7 +18,7 @@
                                 <div class="slds-media__body">
                                     <h2>
                                         <a title="[object Object]" class="slds-card__header-link slds-truncate" href="javascript:void(0);">
-                                            <span class="slds-text-heading_small">{!v.fundName}</span>
+                                            <span class="slds-text-heading_small">{!v.myFunds[0].Portfolio_Name__c}</span>
                                         </a>
                                     </h2>
                                 </div>
@@ -31,13 +31,20 @@
                         <div class="slds-card__body slds-card__body_inner">Axis Long Term Equity fund uses the 3-year lock-in window of the ELSS to provide a unique approach to equity investing. 
                             The lock-in creates a situation where both investor and the fund manager interests are aligned in looking at long term opportunities and ignoring short term noise.
                         </div>
-                        <div class="slds-card__body slds-card__body_inner slds-text-heading_large blueText">{!v.myFunds[0].NAV__c} <h1 class="greenText">+10%</h1></div>
+                        <div class="slds-card__body slds-card__body_inner slds-text-heading_large blueText">{!v.myFunds[0].NAV__c} 
+                            <aura:if isTrue="{!v.myFunds[0].isNegative__c}">
+                                <h1 class="redText">↓ {!v.myFunds[0].Percentage_Change__c}%</h1>
+                                <aura:set attribute="else">
+                                	<h1 class="greenText">↑ {!v.myFunds[0].Percentage_Change__c}%</h1>
+                                </aura:set>
+                            </aura:if>
+                            </div>
                         <footer class="slds-card__footer">Ⓒ Axis Mutual Funds 2018</footer>
                     </article>
                 </div>
             </div>
-            <div class="slds-col slds-size_6-of-12">
-            	<div class="slds-p-top_large slds-p-left_large">
+            <div class="slds-col slds-size_12-of-12">
+            	<div class="slds-p-top_large slds-p-left_large slds-p-right_large">
                     <article class="slds-card">
                         <div class="slds-card__header slds-grid">
                             <header class="slds-media slds-media_center slds-has-flexi-truncate">
@@ -49,7 +56,7 @@
                                 <div class="slds-media__body">
                                     <h2>
                                         <a title="[object Object]" class="slds-card__header-link slds-truncate" href="javascript:void(0);">
-                                            <span class="slds-text-heading_small">Aditya Birla Sun Life Tax Relief '96 - Growth</span>
+                                            <span class="slds-text-heading_small">{!v.myFunds[1].Portfolio_Name__c}</span>
                                         </a>
                                     </h2>
                                 </div>
@@ -64,7 +71,14 @@
                             Its ranked at 4 as per total assets at end of 30th Sep 2017. The Scheme aims to provide growth of capital along with Income Tax exemption benefits to investors.
                             This works best for long term assets.
                         </div>
-                        <div class="slds-card__body slds-card__body_inner slds-text-heading_large blueText">{!v.myFunds[1].NAV__c} <h1 class="redText">-3%</h1></div>
+                        <div class="slds-card__body slds-card__body_inner slds-text-heading_large blueText">{!v.myFunds[1].NAV__c}
+                        	<aura:if isTrue="{!v.myFunds[1].isNegative__c}">
+                                <h1 class="redText">↓ {!v.myFunds[1].Percentage_Change__c}%</h1>
+                                <aura:set attribute="else">
+                                	<h1 class="greenText">↑ {!v.myFunds[1].Percentage_Change__c}%</h1>
+                                </aura:set>
+                            </aura:if>
+                        </div>
                         <footer class="slds-card__footer">Ⓒ Aditya Birla Sun Life Mutual Funds 2018</footer>
                     </article>
                 </div>

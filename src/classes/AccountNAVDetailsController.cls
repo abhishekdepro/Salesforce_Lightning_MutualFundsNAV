@@ -7,14 +7,17 @@ public class AccountNAVDetailsController {
 	*/
     @AuraEnabled
     public static List<Mutual_Fund__c> getMyRecentMutualFunds(){
-        List<Mutual_Fund__c> myFunds = new List<Mutual_Fund__c>();
+        Map<String,Mutual_Fund__c> myFundMap = new Map<String,Mutual_Fund__c>();
         
         //get your watched/invested MF portfolios
         fundPortfolios = getMyPortfolios();
         
-        myFunds = [SELECT Name,Type__c,NAV__c FROM Mutual_Fund__c WHERE Portfolio_Name__c IN:fundPortfolios ORDER BY CreatedDate DESC];
+        for(Mutual_Fund__c mFund: [SELECT Name,Type__c,NAV__c,Portfolio_Name__c,Percentage_Change__c  FROM Mutual_Fund__c WHERE Portfolio_Name__c IN:fundPortfolios ORDER BY CreatedDate DESC LIMIT 2]){
+            if(!myFundMap.containsKey(mFund.Portfolio_Name__c))
+                myFundMap.put(mFund.Portfolio_Name__c, mFund);
+        }
         
-        return myFunds;
+        return myFundMap.values();
     }
     
     /* Method description: Get the Scheme Name/Portfolio Name for my watched funds Custom Metadata Type
